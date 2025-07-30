@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-log">
+  <DisplayName>AM-log</DisplayName>
+  <AssignVariable>
+    <Name>log.faultStatus</Name>
+    <Value>{myError.status}</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>log.faultReason</Name>
+    <Value>{myError.reason}</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>log.faultPayload</Name>
+    <Value>{cmyError.payload}</Value>
+  </AssignVariable>
+  <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

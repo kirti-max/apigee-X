@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 continueOnError="false" enabled="true" name="OAuthV2-generateCodeAC">
+  <DisplayName>OAuthV2-generateCodeAC</DisplayName>
+  <Operation>GenerateAuthorizationCode</Operation>
+  <ExpiresIn>86400</ExpiresIn>
+  <!-- Optional: sets code expiry in seconds -->
+  <GenerateResponse enabled="true"/>
+</OAuthV2>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="55" name="generate-oauth">
+  <DisplayName/>
+  <Description/>
+  <CreatedAt>1753435008477</CreatedAt>
+  <LastModifiedAt>1753435008477</LastModifiedAt>
+  <BasePaths>/generateOauth</BasePaths>
+  <Policies>
+    <Policy>OAuthV2-generateCodeAC</Policy>
+    <Policy>OAuthV2-generateTokenAC</Policy>
+    <Policy>OAuthV2-generateTokenCC_POST</Policy>
+    <Policy>AM-assignToken</Policy>
+    <Policy>AM-setResponse</Policy>
+    <Policy>AM-assignInvalidTokenError</Policy>
+    <Policy>RF-invalidToken</Policy>
+    <Policy>JS-errorHandling</Policy>
+    <Policy>AM-log</Policy>
+  </Policies>
+  <ProxyEndpoints>
+    <ProxyEndpoint>default</ProxyEndpoint>
+  </ProxyEndpoints>
+  <Resources>
+    <Resource>jsc://errorHandling.js</Resource>
+  </Resources>
+  <TargetEndpoints>
+    <TargetEndpoint>default</TargetEndpoint>
+  </TargetEndpoints>
+</APIProxy>

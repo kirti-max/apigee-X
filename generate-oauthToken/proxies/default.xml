@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+  <Description/>
+  <FaultRules>
+    <FaultRule name="InvalidTokenHandler">
+      <Step>
+        <Name>AM-assignInvalidTokenError</Name>
+      </Step>
+      <Condition>oauthV2.failed =="true"</Condition>
+      <Step>
+        <Name>JS-errorHandling</Name>
+      </Step>
+      <Step>
+        <Name>AM-log</Name>
+      </Step>
+      <Step>
+        <Name>RF-invalidToken</Name>
+      </Step>
+    </FaultRule>
+  </FaultRules>
+  <PreFlow name="PreFlow">
+    <Request/>
+    <Response/>
+  </PreFlow>
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response/>
+  </PostFlow>
+  <Flows>
+    <Flow name="generateCode_athorizationCode">
+      <Description/>
+      <Request>
+        <Step>
+          <Name>OAuthV2-generateCodeAC</Name>
+        </Step>
+      </Request>
+      <Response/>
+      <Condition>(proxy.pathsuffix MatchesPath "/generateCode") and (request.verb = "GET")</Condition>
+    </Flow>
+    <Flow name="generateToken_athorizationCode">
+      <Description/>
+      <Request>
+        <Step>
+          <Name>OAuthV2-generateTokenAC</Name>
+        </Step>
+      </Request>
+      <Response>
+      </Response>
+      <Condition>(proxy.pathsuffix MatchesPath "/generateTokenAC") and (request.verb = "POST")</Condition>
+    </Flow>
+    <Flow name="generateTokenCCPOST">
+      <Description/>
+      <Request>
+        <Step>
+          <Name>OAuthV2-generateTokenCC_POST</Name>
+        </Step>
+        <Step>
+          <Name>AM-assignToken</Name>
+        </Step>
+        <Step>
+          <Name>AM-setResponse</Name>
+        </Step>
+      </Request>
+      <Response/>
+      <Condition>(proxy.pathsuffix MatchesPath "/generateTokenCC") and (request.verb = "POST")</Condition>
+    </Flow>
+  </Flows>
+  <HTTPProxyConnection>
+    <BasePath>/generateOauth</BasePath>
+    <Properties/>
+  </HTTPProxyConnection>
+  <RouteRule name="default">
+    <TargetEndpoint>default</TargetEndpoint>
+  </RouteRule>
+</ProxyEndpoint>

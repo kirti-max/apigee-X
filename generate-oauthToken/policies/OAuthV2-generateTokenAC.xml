@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 continueOnError="false" enabled="true" name="OAuthV2-generateTokenAC">
+  <DisplayName>OAuthV2-generateTokenAC</DisplayName>
+  <ExternalAuthorization>false</ExternalAuthorization>
+  <Operation>GenerateAccessToken</Operation>
+  <SupportedGrantTypes>
+    <GrantType>authorization_code</GrantType>
+  </SupportedGrantTypes>
+  <GenerateResponse enabled="true"/>
+  <Tokens>
+    <AccessToken>
+      <ExpiresIn>3600000</ExpiresIn>
+    </AccessToken>
+    <RefreshToken>
+      <ExpiresIn>7200000</ExpiresIn>
+    </RefreshToken>
+  </Tokens>
+  <RFCCompliantRequestResponse>true</RFCCompliantRequestResponse>
+</OAuthV2>

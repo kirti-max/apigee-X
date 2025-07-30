@@ -2,10 +2,10 @@
 # Apigee Proxy: Banking API
 
 This repository contains an Apigee proxy for 
-Banking API Gateway 
-   - Oauth 2.0 token verification.
-   - RaiseFault for every error scenarios + fallback flow 
-   - Logging 
+Genarating Oauth token 
+   - Oauth 2.0 token generation using client credential grant type 
+   - RaiseFault for faults
+   - used in BankingProxy 
 
 ## Structure
 
@@ -14,4 +14,4 @@ Banking API Gateway
   - `proxies/`: Proxy endpoints
   - `targets/`: Target endpoints
   - `resources/`: JavaScript or shared resources
-  - `Banking.xml`: Main proxy configuration
+  - `generate-Oauth.xml`: Main proxy configuration
