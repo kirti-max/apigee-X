@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 continueOnError="false" enabled="true" name="OAuthV2-verifyToken">
+  <DisplayName>OAuthV2-verifyToken</DisplayName>
+  <ExternalAuthorization>false</ExternalAuthorization>
+  <Operation>VerifyAccessToken</Operation>
+  <AccessToken>apigee.token</AccessToken>
+  <RFCCompliantRequestResponse>true</RFCCompliantRequestResponse>
+</OAuthV2>

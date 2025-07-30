@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="51" name="Banking">
+  <DisplayName/>
+  <Description/>
+  <CreatedAt>1753789093756</CreatedAt>
+  <LastModifiedAt>1753857902591</LastModifiedAt>
+  <BasePaths>/banking</BasePaths>
+  <Policies>
+    <Policy>SC-Oauth</Policy>
+    <Policy>AM-displayLogs</Policy>
+    <Policy>EV-extractBody</Policy>
+    <Policy>EV-extractAccessToken</Policy>
+    <Policy>OAuthV2-verifyToken</Policy>
+    <Policy>AM-assignBearerToken</Policy>
+    <Policy>BA-generateAuthorizationHeader</Policy>
+    <Policy>AM-assignInvalidTokenError</Policy>
+    <Policy>JS-errorHandling</Policy>
+    <Policy>RF-raiseError</Policy>
+    <Policy>AM-assignUnathorizeError</Policy>
+    <Policy>AM-backendError</Policy>
+    <Policy>JS-log</Policy>
+    <Policy>AM-catchAllError</Policy>
+    <Policy>ML-incomingLogs</Policy>
+    <Policy>ML-outcomeLog</Policy>
+  </Policies>
+  <ProxyEndpoints>
+    <ProxyEndpoint>default</ProxyEndpoint>
+  </ProxyEndpoints>
+  <Resources>
+    <Resource>jsc://errorHandling.js</Resource>
+    <Resource>jsc://log.js</Resource>
+  </Resources>
+  <TargetEndpoints>
+    <TargetEndpoint>default</TargetEndpoint>
+  </TargetEndpoints>
+</APIProxy>

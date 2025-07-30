@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+  <Description/>
+  <FaultRules>
+    <FaultRule name="InvalidTokenHandler">
+      <Condition>calloutResponse.status.code != 200</Condition>
+      <Step>
+        <Name>AM-displayLogs</Name>
+      </Step>
+      <Step>
+        <Name>AM-assignInvalidTokenError</Name>
+      </Step>
+      <Step>
+        <Name>JS-errorHandling</Name>
+      </Step>
+      <Step>
+        <Name>RF-raiseError</Name>
+      </Step>
+    </FaultRule>
+    <FaultRule name="unauthorized">
+      <Condition>oauthV2.failed == "true"</Condition>
+      <Step>
+        <Name>JS-log</Name>
+      </Step>
+      <Step>
+        <Name>AM-assignUnathorizeError</Name>
+      </Step>
+      <Step>
+        <Name>JS-errorHandling</Name>
+      </Step>
+      <Step>
+        <Name>RF-raiseError</Name>
+      </Step>
+    </FaultRule>
+    <FaultRule name="FallbackBackendFail">
+      <Condition>fault.name = "GatewayTimeout"</Condition>
+      <Step>
+        <Name>JS-log</Name>
+      </Step>
+      <Step>
+        <Name>AM-backendError</Name>
+      </Step>
+      <Step>
+        <Name>JS-errorHandling</Name>
+      </Step>
+      <Step>
+        <Name>RF-raiseError</Name>
+      </Step>
+    </FaultRule>
+    <FaultRule name="CatchAll">
+      <Step>
+        <Name>JS-log</Name>
+      </Step>
+      <Step>
+        <Name>AM-catchAllError</Name>
+      </Step>
+      <Step>
+        <Name>JS-errorHandling</Name>
+      </Step>
+      <Step>
+        <Name>RF-raiseError</Name>
+      </Step>
+    </FaultRule>
+  </FaultRules>
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>ML-incomingLogs</Name>
+      </Step>
+    </Request>
+    <Response>
+      <Step>
+        <Name>ML-outcomeLog</Name>
+      </Step>
+    </Response>
+  </PreFlow>
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response/>
+  </PostFlow>
+  <Flows>
+    <Flow name="oauth">
+      <Description/>
+      <Request>
+        <Step>
+          <Name>SC-Oauth</Name>
+        </Step>
+        <Step>
+          <Name>AM-displayLogs</Name>
+        </Step>
+        <Step>
+          <Name>EV-extractBody</Name>
+        </Step>
+        <Step>
+          <Name>EV-extractAccessToken</Name>
+        </Step>
+        <Step>
+          <Name>OAuthV2-verifyToken</Name>
+        </Step>
+      </Request>
+      <Response/>
+      <Condition>(proxy.pathsuffix MatchesPath "/oauth") and (request.verb = "GET")</Condition>
+    </Flow>
+  </Flows>
+  <HTTPProxyConnection>
+    <BasePath>/banking</BasePath>
+    <Properties/>
+  </HTTPProxyConnection>
+  <RouteRule name="default">
+    <TargetEndpoint>default</TargetEndpoint>
+  </RouteRule>
+</ProxyEndpoint>

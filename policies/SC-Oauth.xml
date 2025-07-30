@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout continueOnError="false" enabled="true" name="SC-Oauth">
+  <DisplayName>SC-Oauth</DisplayName>
+  <Request>
+    <Set>
+      <Verb>POST</Verb>
+      <Headers>
+        <Header name="Content-Type">application/x-www-form-urlencoded</Header>
+        <Header name="Accept">application/json</Header>
+        <Header name="Authorization">{request.header.Authorization}</Header>
+      </Headers>
+      <Payload contentType="application/x-www-form-urlencoded">grant_type=client_credentials</Payload>
+    </Set>
+  </Request>
+  <Response>calloutResponse</Response>
+  <HTTPTargetConnection>
+    <URL>https://34.111.13.222.nip.io/generateOauth/generateTokenCC</URL>
+    <SSLInfo>
+      <Enabled>true</Enabled>
+      <Enforce>false</Enforce>
+      <IgnoreValidationErrors>true</IgnoreValidationErrors>
+    </SSLInfo>
+  </HTTPTargetConnection>
+</ServiceCallout>

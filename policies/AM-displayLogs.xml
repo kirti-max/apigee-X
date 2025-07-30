@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-displayLogs">
+  <DisplayName>AM-displayLogs</DisplayName>
+  <AssignVariable>
+    <Name>log.calloutResponse</Name>
+    <Ref>calloutResponse.content</Ref>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>access_token</Name>
+    <Ref>calloutResponse.content.body.access_token</Ref>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>log.calloutStatus</Name>
+    <Ref>calloutResponse.status.code</Ref>
+  </AssignVariable>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

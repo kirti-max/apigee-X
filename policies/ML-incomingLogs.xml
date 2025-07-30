@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MessageLogging continueOnError="false" enabled="true" name="ML-incomingLogs">
+  <DisplayName>ML-incomingLogs</DisplayName>
+  <Syslog>
+    <Host>syslog.example.com</Host>
+    <Port>514</Port>
+    <Message>
+          {
+              "requestUri": "{request.uri}",
+              "requestVerb": "{request.verb}",
+              "requestHeaders": "{request.headers}"
+          }
+    </Message>
+    <Format>RFC5424</Format>
+  </Syslog>
+  <logLevel>INFO</logLevel>
+</MessageLogging>

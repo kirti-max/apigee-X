@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BasicAuthentication continueOnError="false" enabled="true" name="BA-generateAuthorizationHeader">
+  <DisplayName>BA-generateAuthorizationHeader</DisplayName>
+  <Operation>Encode</Operation>
+  <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+  <User ref="request.headers.username"/>
+  <Password ref="request.headers.password"/>
+  <AssignTo createNew="false">request.header.Authorization</AssignTo>
+  <Source>request.header.Authorization</Source>
+</BasicAuthentication>
