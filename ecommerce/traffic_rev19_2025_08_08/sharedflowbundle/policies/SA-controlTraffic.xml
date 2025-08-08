@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SpikeArrest continueOnError="true" enabled="true" name="SA-controlTraffic">
+  <DisplayName>SA-controlTraffic</DisplayName>
+  <Identifier ref="request.header.x-api-key"/>
+  <!-- <MessageWeight ref="request.header.weight"/> -->
+  <Rate ref="verifyapikey.VA-verifyKey.apiproduct.spikeRate"/>
+</SpikeArrest>

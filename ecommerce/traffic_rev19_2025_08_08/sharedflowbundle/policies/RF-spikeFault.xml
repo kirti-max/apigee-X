@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="RF-spikeFault">
+  <DisplayName>RF-spikeFault</DisplayName>
+  <FaultResponse>
+    <Set>
+      <Headers/>
+      <Payload contentType="application/json"> 
+       {
+      "error" : "Spike arrest violation",
+      "message" : "Too many requests."
+       }
+      </Payload>
+      <StatusCode>429</StatusCode>
+      <ReasonPhrase>Too Many Requests</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

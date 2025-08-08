@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="RF-quotaFault">
+  <DisplayName>RF-quotaFault</DisplayName>
+  <FaultResponse>
+    <Set>
+      <Headers/>
+      <Payload contentType="application/json">
+      {
+      "error" : "Quota violation",
+      "message" : "Exceeded allowed usage"
+      }
+      </Payload>
+      <StatusCode>403</StatusCode>
+      <ReasonPhrase>forbidden</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+  <FaultRules>
+    <FaultRule>
+      <step>
+        <Name>AM-log</Name>
+      </step>
+      <step>
+        <Name>AM-assignErrorCode</Name>
+      </step>
+      <step>
+        <Name>JS-errorHandling</Name>
+      </step>
+      <step>
+        <Name>RF-setError</Name>
+      </step>
+    </FaultRule>
+  </FaultRules>
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>ML-logIncomingRequest</Name>
+      </Step>
+    </Request>
+    <Response/>
+  </PreFlow>
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response>
+      <Step>
+        <Name>ML-logResponse</Name>
+      </Step>
+    </Response>
+  </PostFlow>
+  <Flows>
+    <Flow name="ecommerce">
+      <Description/>
+      <Request>
+        <Step>
+          <Name>JS-validateHeaders</Name>
+        </Step>
+        <Step>
+          <Condition>headerValidation.failed == "true"</Condition>
+          <Name>FC-headerValidationErrorHandling</Name>
+        </Step>
+        <Step>
+          <Name>VA-verifyKey</Name>
+        </Step>
+        <Step>
+          <Name>RF-invalidAPIKey</Name>
+          <Condition>oauthV2.VA-verifyKey.failed ="true"</Condition>
+        </Step>
+        <Step>
+          <Name>OAuthV2-verifyToken</Name>
+        </Step>
+        <Step>
+          <Name>RF-oauthFault</Name>
+          <Condition>oauthV2.OAuthV2-verifyToken.failed ="true"</Condition>
+        </Step>
+        <Step>
+          <Name>FC-traffic</Name>
+        </Step>
+      </Request>
+      <Response/>
+      <Condition>(proxy.pathsuffix MatchesPath "/ecom") and (request.verb = "GET")</Condition>
+    </Flow>
+  </Flows>
+  <HTTPProxyConnection>
+    <BasePath>/ecommerce</BasePath>
+    <Properties/>
+  </HTTPProxyConnection>
+  <RouteRule name="default">
+    <TargetEndpoint>default</TargetEndpoint>
+  </RouteRule>
+</ProxyEndpoint>

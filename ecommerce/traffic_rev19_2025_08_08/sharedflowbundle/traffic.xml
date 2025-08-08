@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="19" name="traffic">
+  <DisplayName/>
+  <Description>Used to control traffic</Description>
+  <CreatedAt>1754549269939</CreatedAt>
+  <LastModifiedAt>1754549269939</LastModifiedAt>
+  <Policies>
+    <Policy>Q-rateLimiting</Policy>
+    <Policy>SA-controlTraffic</Policy>
+    <Policy>VA-verifyKey</Policy>
+    <Policy>RF-quotaFault</Policy>
+    <Policy>RF-spikeFault</Policy>
+  </Policies>
+  <SharedFlows>
+    <SharedFlow>default</SharedFlow>
+  </SharedFlows>
+  <subType>SharedFlow</subType>
+</SharedFlowBundle>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MessageLogging continueOnError="false" enabled="true" name="ML-logIncomingRequest">
+  <DisplayName>ML-logIncomingRequest</DisplayName>
+  <Syslog>
+    <Message>{
+    "requestUri": "{request.uri}",
+    "requestVerb": "{request.verb}",
+    "requestHeaders": "{request.headers.names}"
+    }</Message>
+    <Host>syslog.example.com</Host>
+    <Port>514</Port>
+  </Syslog>
+</MessageLogging>

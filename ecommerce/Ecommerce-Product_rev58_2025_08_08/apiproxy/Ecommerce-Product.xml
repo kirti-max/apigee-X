@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="58" name="Ecommerce-Product">
+  <DisplayName/>
+  <Description/>
+  <CreatedAt>1754641600830</CreatedAt>
+  <LastModifiedAt>1754641600830</LastModifiedAt>
+  <BasePaths>/ecommerce</BasePaths>
+  <Policies>
+    <Policy>ML-logIncomingRequest</Policy>
+    <Policy>ML-logResponse</Policy>
+    <Policy>FC-traffic</Policy>
+    <Policy>JS-validateHeaders</Policy>
+    <Policy>JS-errorHandling</Policy>
+    <Policy>AM-assignErrorCode</Policy>
+    <Policy>RF-setError</Policy>
+    <Policy>AM-log</Policy>
+    <Policy>FC-headerValidationErrorHandling</Policy>
+    <Policy>VA-verifyKey</Policy>
+    <Policy>RF-invalidAPIKey</Policy>
+    <Policy>OAuthV2-verifyToken</Policy>
+    <Policy>RF-oauthFault</Policy>
+  </Policies>
+  <ProxyEndpoints>
+    <ProxyEndpoint>default</ProxyEndpoint>
+  </ProxyEndpoints>
+  <Resources>
+    <Resource>jsc://validateHeaders.js</Resource>
+    <Resource>jsc://errors.js</Resource>
+  </Resources>
+  <TargetEndpoints>
+    <TargetEndpoint>default</TargetEndpoint>
+  </TargetEndpoints>
+</APIProxy>

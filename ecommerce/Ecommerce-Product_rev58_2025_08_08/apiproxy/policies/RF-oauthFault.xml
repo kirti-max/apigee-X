@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="RF-oauthFault">
+  <DisplayName>RF-oauthFault</DisplayName>
+  <Properties/>
+  <FaultResponse>
+    <Set>
+      <Headers/>
+      <Payload contentType="application/json">
+      {
+      "error" : "invalid_token",
+      "message" : "Access token is missing or client not authorized"
+      }
+     </Payload>
+      <StatusCode>401</StatusCode>
+      <ReasonPhrase>unauthorized</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

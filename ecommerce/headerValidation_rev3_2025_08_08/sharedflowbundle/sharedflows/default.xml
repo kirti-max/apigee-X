@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+  <Step>
+    <Name>AM-assignMissingHeader</Name>
+  </Step>
+  <Step>
+    <Name>JS-errorHandling</Name>
+  </Step>
+  <Step>
+    <Name>RF-raiseError</Name>
+  </Step>
+</SharedFlow>

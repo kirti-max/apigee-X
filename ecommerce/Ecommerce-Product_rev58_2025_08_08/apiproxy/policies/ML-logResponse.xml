@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MessageLogging continueOnError="false" enabled="true" name="ML-logResponse">
+  <DisplayName>ML-logResponse</DisplayName>
+  <Syslog>
+    <Message>{
+    "responseContent": "{response.content}",
+    "responsePhrase": "{response.reason.phrase}",
+    "responseCode": "{response.status.code}",
+    "fault" :"{fault.name}",
+    "faultPolicy":"{fault.policy.name}"
+    }</Message>
+    <Host>syslog.example.com</Host>
+    <Port>514</Port>
+  </Syslog>
+</MessageLogging>

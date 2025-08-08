@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Quota continueOnError="true" enabled="true" name="Q-rateLimiting" type="calendar">
+  <!-- quota is used before spike to check is client is let with any quota then only it will manage traffic using spike -->
+  <DisplayName>Q-rateLimiting</DisplayName>
+  <Allow countRef="verifyapikey.VA-verifyKey.apiproduct.quotaCount"/>
+  <Identifier ref="request.header.x-api-key"/>
+  <Interval>1</Interval>
+  <Distributed>false</Distributed>
+  <Synchronous>false</Synchronous>
+  <TimeUnit>hour</TimeUnit>
+  <StartTime>2013-08-21 10:00:00</StartTime>
+  <AsynchronousConfiguration>
+    <!-- after what amoutn of time or message calls the quota will be updated to backend central quota store  from local quota store count  -->
+    <SyncIntervalInSeconds>20</SyncIntervalInSeconds>
+    <SyncMessageCount>5</SyncMessageCount>
+  </AsynchronousConfiguration>
+</Quota>

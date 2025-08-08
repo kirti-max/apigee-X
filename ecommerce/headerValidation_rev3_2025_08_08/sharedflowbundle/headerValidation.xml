@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="3" name="headerValidation">
+  <DisplayName/>
+  <Description/>
+  <CreatedAt>1754572648413</CreatedAt>
+  <LastModifiedAt>1754572648413</LastModifiedAt>
+  <Policies>
+    <Policy>AM-assignMissingHeader</Policy>
+    <Policy>JS-errorHandling</Policy>
+    <Policy>RF-raiseError</Policy>
+  </Policies>
+  <Resources>
+    <Resource>jsc://errors.js</Resource>
+  </Resources>
+  <SharedFlows>
+    <SharedFlow>default</SharedFlow>
+  </SharedFlows>
+  <subType>SharedFlow</subType>
+</SharedFlowBundle>

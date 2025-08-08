@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+  <Step>
+    <Name>VA-verifyKey</Name>
+  </Step>
+  <Step>
+    <Name>Q-rateLimiting</Name>
+  </Step>
+  <Step>
+    <Name>RF-quotaFault</Name>
+    <Condition>ratelimit.Q-rateLimiting.failed = "true"</Condition>
+  </Step>
+  <Step>
+    <Name>SA-controlTraffic</Name>
+  </Step>
+  <Step>
+    <Name>RF-spikeFault</Name>
+    <Condition>ratelimit.SA-controlTraffic.failed = "true"</Condition>
+  </Step>
+</SharedFlow>

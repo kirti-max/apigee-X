@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-assignErrorCode">
+  <DisplayName>AM-assignErrorCode</DisplayName>
+  <AssignVariable>
+    <Name>flow.error.code</Name>
+    <Ref>fault.name</Ref>
+  </AssignVariable>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

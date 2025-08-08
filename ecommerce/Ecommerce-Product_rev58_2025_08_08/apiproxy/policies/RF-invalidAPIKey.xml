@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="RF-invalidAPIKey">
+  <DisplayName>RF-invalidAPIKey</DisplayName>
+  <Properties/>
+  <FaultResponse>
+    <Set>
+      <Headers/>
+      <Payload contentType="application/json">
+      {
+      "error" : "invalid request",
+      "message" : "invalid api key"
+      }
+      </Payload>
+      <StatusCode>401</StatusCode>
+      <ReasonPhrase>invalid Request</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>
