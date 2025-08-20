@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="RF-apikeyFault">
+  <DisplayName>RF-apikeyFault</DisplayName>
+  <FaultResponse>
+    <Set>
+      <Payload contentType="application/json"> 
+      "error": "Invalid ApiKey"
+      </Payload>
+      <StatusCode>400</StatusCode>
+      <ReasonPhrase>unauthorized</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="RF-JWTerror">
+  <DisplayName>RF-JWTerror</DisplayName>
+  <FaultResponse>
+    <Set>
+      <Payload contentType="application/json">
+          "Error" :"JWT generation failed",
+          "Details" :"{jwt.JWT-generate.error}"
+
+      </Payload>
+      <StatusCode>500</StatusCode>
+      <ReasonPhrase>Internal Server Error</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

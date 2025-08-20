@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="18" name="generate-jwt">
+  <DisplayName/>
+  <Description/>
+  <CreatedAt>1755675462309</CreatedAt>
+  <LastModifiedAt>1755675462309</LastModifiedAt>
+  <BasePaths>/generate-jwt</BasePaths>
+  <Policies>
+    <Policy>JWT-generate</Policy>
+    <Policy>AM-setResponse</Policy>
+    <Policy>AM-assignSecretKey</Policy>
+    <Policy>RF-JWTerror</Policy>
+    <Policy>RF-MissingSecretKey</Policy>
+    <Policy>VA-verifyKey</Policy>
+    <Policy>RF-apikeyFault</Policy>
+  </Policies>
+  <ProxyEndpoints>
+    <ProxyEndpoint>default</ProxyEndpoint>
+  </ProxyEndpoints>
+  <TargetEndpoints>
+    <TargetEndpoint>default</TargetEndpoint>
+  </TargetEndpoints>
+</APIProxy>
