@@ -1,5 +1,5 @@
 
-# Apigee Proxy: Banking API
+# Apigee Proxy: JWT generation
 
 This repository contains an Apigee proxy for 
 JWT token generation 
